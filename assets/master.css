@@ -1,0 +1,73 @@
+html { font-size:100%; }
+
+body{
+    background-color: #ffffff;
+}
+
+
+#cn_SfondoBici{
+    height: 50vh;
+    width: 100vw;
+    background-image: url("./img/bg-img-bici.jpg");
+}
+
+#my_Table{
+    height: 100%;
+}
+
+#tabellaBici{
+    overflow-y: ;
+}
+
+
+
+.myBtnController{
+    background-color: rgba(0,0,0,0.74);
+}
+
+.myBtnController:hover{
+    background-color: rgba(0,0,0,0.84);
+    color: #000000;
+    text-shadow: 0 0 1px #000000;
+    transform: scale(1.06);
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+
+
+
+
+/* bg-color */
+.bg-black{
+    background-color: rgba(0,0,0,0.84);
+}
+
+.bg-white{
+    background-color: rgba(255,255,255,255.14);
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.bg-my-green{
+    background-color: #388e3c;
+}
+
+.text-green{
+    color: #388e3c;
+}
+
+/* text */
+
+.text-red{
+    color: red;
+}
+
+/* border color */
+
+.text-color_Blk{
+    color: #000000;
+}
