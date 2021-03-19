@@ -103,7 +103,7 @@ function Snack2(){
         const nameKey3 = 'falliSubiti';
 
         const squadra = {
-            [nameKey] : $(my_btn_Input_$).val(""),
+            [nameKey] : $(my_btn_Input_$).val(),
             [nameKey2]: add_Punti(),
             [nameKey3]: add_FalliSubiti(),
         };
@@ -125,7 +125,7 @@ function Snack2(){
                 const {name, falliSubiti} = tmpSquadra;
                 console.log(name);
                 console.log(falliSubiti);
-                const [studentOne, studentTwo] = squadre;
+                const [name1,,falliSubiti1] = squadre;
                 let squadraRowTable = `<tr class="text-success squadra border border-success"><td class="nome bg-transparent"><strong>${name}</strong>
                 </td><td><strong>${falliSubiti}</strong></td></tr>`;
 
