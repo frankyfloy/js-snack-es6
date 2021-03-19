@@ -6,6 +6,40 @@ $(document).ready(function (){
 });
 
 
+// Jsnack gatti
+function Snack3(){
+
+    const gatti = [];
+
+    const gatto1 = {
+        name : "leo",
+        età : "10",
+        colore : "bianco",
+        sesso : "maschio"
+    };
+
+    const gatto2 = {
+        name : "Anna",
+        età : "12",
+        colore : "nero",
+        sesso : "femmina"
+    };
+
+    const gatto3 = {
+        name : "Lia",
+        età : "8",
+        colore : "marrone",
+        sesso : "femmina"
+    };
+
+    gatti.push(gatto1,gatto2,gatto3);
+    console.log(gatti);
+
+}
+
+
+
+
 function Snack1(){
 
     let name,peso;
@@ -139,10 +173,5 @@ function Snack2(){
             return num;
         }
     });
-
-}
-
-function Snack3(){
-
 
 }
