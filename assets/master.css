@@ -4,52 +4,30 @@ body{
     background-color: #ffffff;
 }
 
+/* jsnack */
+#my_Form,#my_Form_Calcio{
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+}
 
-/* #cn_SfondoBici,.jSnack2{
-    height: 50vh;
-    width: 100vw;
-} */
+#my_Table,#my_Table_Calcio{
+    height: 300px;
+}
+
+
+/* Jsnack1 */
 
 #my_Form{
     background-image: url("./img/bg-img-bici.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 300px;
-
 }
-
-#my_Table{
-    height: 300px;
-}
-
 
 /* Jsnack2 */
 
-
 #my_Form_Calcio{
     background-image: url("./img/stadio.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 300px;
     width: 300px;
 }
-
-#my_Table_Calcio{
-    height: 300px;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,7 +73,7 @@ body{
 
 
 /* bg-color */
-.bg-black,.myBtnController,#tabellaBici{
+.bg-black,.myBtnController,#tabellaBici,#tabellaSquadre{
     background-color: rgba(0,0,0,0.73);
     border-color: #388e3c;
 }

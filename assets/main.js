@@ -1,23 +1,19 @@
 $(document).ready(function (){
     Snack1();
     Snack2();
+    Snack3();
 
 });
 
 
 function Snack1(){
 
-
     let name,peso;
-
-
     var myForm_$ = $("form#my_Form");
-
+    var biciclette  = [];
     myForm_$.submit(function( event ) {
 
         // Variabili
-        var biciclette  = [];
-        var biciPiùLeggera;
 
 
         // Annullamento invio dati (Refresh page)
@@ -25,67 +21,69 @@ function Snack1(){
 
         let my_btn_Input_$ = $("form#my_Form > button > input");
 
-        const nameKey = 'peso';
+        const nameKey1_Bici = 'name';
+        const nameKey2_Bici = 'peso';
 
         const bicicletta = {
-            name: $(my_btn_Input_$).eq(0).val(),
-            [nameKey]: $(my_btn_Input_$).eq(1).val(),
+            [nameKey1_Bici]: $(my_btn_Input_$).eq(0).val(),
+            [nameKey2_Bici]: parseInt($(my_btn_Input_$).eq(1).val()),
         };
 
         const {name, peso} = bicicletta;
-        biciclette.push(bicicletta);
+        biciclette.push({name,peso});
 
         add_Dati(name,peso);
-
-        $("#my_Table  button").click( function(){
-
-
-
-            let itemSuccessivo = biciclette[0];
-            let indexItemSuccessivo = 0;
-            console.log(biciclette);
-
-            for (var i = 1; i < biciclette.length; i++) {
-
-                if (itemSuccessivo.peso <= biciclette[i].peso) {
-                    biciPiùLeggera = itemSuccessivo;
-                    indexItemSuccessivo = i;
-
-                }else {
-                    biciPiùLeggera = biciclette[i];
-                    indexItemSuccessivo = i;
-                    console.log(biciPiùLeggera);
-                    console.log(indexItemSuccessivo);
-                }
-
-            }
-
-            console.log(biciclette[indexItemSuccessivo].name);
-            // console.log(biciclette[indexItemSuccessivo][peso]);
-            $("#tabellaBici").children().hide();
-
-            let itemPiuLeggera = `<tr class="text-success bicicletta border border-success"><td class="nome bg-transparent"><strong>${biciclette[indexItemSuccessivo].name}</strong>
-            </td><td><strong>${biciclette[indexItemSuccessivo].peso}</strong></td></tr>`;
-
-            $("#tabellaBici").append(itemPiuLeggera);
-
-        });
 
         // Reset valori input
         $(my_btn_Input_$).eq(0).val("");
         $(my_btn_Input_$).eq(1).val("");
-
-
-        function add_Dati(nome,peso){
-            let str = `<tr class="bicicletta text-success border border-dark"><td class="nome"><strong>${nome}</strong>
-            </td><td><strong>${peso}</strong></td></tr>`;
-            $("#tabellaBici").append(str);
-        };
     });
+
+
+    $("#my_Table  button").click( function(){
+        var biciPiùLeggera;
+
+        let itemSuccessivo = biciclette[0].peso;
+        let indexSuccessivoMin = 0;
+
+        for (var i = 1; i < biciclette.length; i++) {
+
+            if (itemSuccessivo > biciclette[i].peso) {
+                itemSuccessivo = biciclette[i].peso;
+                indexSuccessivoMin = i;
+            }
+        }
+
+        $("#tabellaBici").children().hide();
+
+        console.log(biciclette[indexSuccessivoMin].name);
+        let itemPiuLeggera = `<tr class="text-success bicicletta border border-success"><td class="nome bg-transparent"><strong>${biciclette[indexSuccessivoMin].name}</strong>
+        </td><td><strong>${biciclette[indexSuccessivoMin].peso}</strong></td></tr>`;
+
+        $("#tabellaBici").append(itemPiuLeggera);
+        console.log(biciclette);
+
+        setTimeout(function(){
+            $("#tabellaBici").children().remove();
+            biciclette  = [];
+            console.log(biciclette);
+        },3000);
+
+    });
+
+    function add_Dati(nome,peso){
+        let str = `<tr class="bicicletta text-success border border-dark"><td class="nome"><strong>${nome}</strong>
+        </td><td><strong>${peso}</strong></td></tr>`;
+        $("#tabellaBici").append(str);
+    };
 }
 
 
+
+
 function Snack2(){
+    // Variabili
+    const squadre = [];
 
     var my_Form_Calcio_$ = $("form#my_Form_Calcio");
     my_Form_Calcio_$.submit(function( event ) {
@@ -94,9 +92,6 @@ function Snack2(){
 
         // Variabili jquery
         let my_btn_Input_$ = $("form#my_Form_Calcio > button > input");
-
-        // Variabili
-        const squadre = [];
 
         const nameKey = 'name';
         const nameKey2 = 'punti';
@@ -113,24 +108,21 @@ function Snack2(){
         console.log(squadra.name);
 
         squadre.push(squadra);
+        console.log(squadre);
 
-
-
+        let squadraRowTable;
         $("#my_Table_Calcio  button").click( function(){
-
+            var newArraySquadre = [];
             for (var i = 0; i < squadre.length; i++) {
 
-                const tmpSquadra = squadre[i];
+                const {name,falliSubiti} = squadre[i];
+                newArraySquadre.push({name,falliSubiti})
 
-                const {name, falliSubiti} = tmpSquadra;
-                console.log(name);
-                console.log(falliSubiti);
-                const [name1,,falliSubiti1] = squadre;
-                let squadraRowTable = `<tr class="text-success squadra border border-success"><td class="nome bg-transparent"><strong>${name}</strong>
-                </td><td><strong>${falliSubiti}</strong></td></tr>`;
-
-                $("#tabellaSquadre").append(squadraRowTable);
+                squadraRowTable += `<tr class="text-success border border-dark border border-success"><td class="nome bg-transparent"><strong>${newArraySquadre[i].name}</strong>
+                </td><td><strong>${newArraySquadre[i].falliSubiti}</strong></td></tr>`;
             }
+
+            $("#tabellaSquadre").html(squadraRowTable);
 
         });
 
@@ -146,15 +138,11 @@ function Snack2(){
             var num = Math.floor(Math.random() * 100 + 1);
             return num;
         }
-
-
     });
 
+}
 
-
-
-
-
+function Snack3(){
 
 
 }
