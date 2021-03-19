@@ -80,6 +80,38 @@
                 </div>
             </form>
         </div>
+        <div class="jSnack3 mb-3">
+            <!-- Input dati -->
+            <form id="my_Form_Gatti" action="destination.html" class="mr-auto ml-auto mt-3">
+                <h3 class="bg-black text-light text-center p-3 border border-success rounded">Inserisci i nomi dei Gatti</h3>
+
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Nome gatto"></button>
+
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Età"></button>
+
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Colore"></button>
+
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Sesso"></button>
+
+                <button type="submit" class="btn bg-black text-light myBtnSalva ml-2 mr-2">Salva</button>
+
+                <!-- Table -->
+                <div id="my_Table_Gatti" class="table-responsive text-center text-uppercase mt-3 scroll">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="bg-black border rounded text-light">
+                                <th class=""><strong>Nome</strong></th>
+                                <th class=""><strong>Colore</strong></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabellaGatti" class="text-light">
+
+                        </tbody>
+                        <div class="sticky-top"><button type="button" class="myBtnController text-uppercase text-light border-success mb-2 pt-1 pb-1">Stampa risultati</button></div>
+                    </table>
+                </div>
+            </form>
         </div>
     </body>
 </html>

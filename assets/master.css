@@ -5,8 +5,14 @@ body{
 }
 
 /* jsnack */
-#my_Form,#my_Form_Calcio{
+#my_Form,#my_Form_Calcio,#my_Form_Gatti{
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+}
+
+#my_Form_Gatti{
+    background-size: 100%;
     background-repeat: no-repeat;
     min-height: 300px;
 }
@@ -28,6 +34,14 @@ body{
     background-image: url("./img/stadio.webp");
     width: 300px;
 }
+
+/*Jsnack 3 gatti */
+#my_Form_Gatti{
+    background-image: url("./img/gatti.jfif");
+    width: 500px;
+}
+
+
 
 
 
@@ -73,7 +87,7 @@ body{
 
 
 /* bg-color */
-.bg-black,.myBtnController,#tabellaBici,#tabellaSquadre{
+.bg-black,.myBtnController,#tabellaBici,#tabellaSquadre,tabellaGatti{
     background-color: rgba(0,0,0,0.73);
     border-color: #388e3c;
 }
