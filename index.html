@@ -27,16 +27,16 @@
 
 
             <!-- Input dati -->
-            <form id="my_Form" action="destination.html" class="mr-auto ml-auto">
-                <h3 class="bg-black text-light text-center p-3 border rounded">Inserisci la Marca E IL Peso</h3>
-                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Nome"></button>
+            <form id="my_Form" action="destination.html" class="mr-auto ml-auto mt-3">
+                <h3 class="bg-black text-light text-center p-3 border border-success rounded">Inserisci la  Marca e il Peso</h3>
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Marca"></button>
 
                 <button type="button" class="btn btn-outline-light myBtnController"><input type="number" name="peso" value="" min="0" max="60" placeholder = "Peso"></button>
 
-                <button type="submit" class="btn bg-black text-light ml-2">Salva</button>
+                <button type="submit" class="btn bg-black text-light myBtnSalva ml-2 mr-2">Salva</button>
 
                 <!-- Table -->
-                <div id="my_Table" class="table-responsive text-center text-uppercase mt-3">
+                <div id="my_Table" class="table-responsive text-center text-uppercase mt-3 scroll">
                     <table class="table table-hover">
                         <thead>
                             <tr class="bg-black border rounded text-light">
@@ -48,10 +48,39 @@
                         <tbody id="tabellaBici" class="text-light">
 
                         </tbody>
+                        <div class="sticky-top"><button type="button" class="myBtnController text-uppercase text-light border-success mb-2 pt-1 pb-1">qual è la più leggera?</button></div>
                     </table>
-                    <button type="button" class="btn bg-black text-uppercase text-light ml-2">qual è la più leggera?</button>
                 </div>
             </form>
+        </div>
+
+        <div class="jSnack2">
+            <!-- Input dati -->
+            <form id="my_Form_Calcio" action="destination.html" class="mr-auto ml-auto mt-3">
+                <h3 class="bg-black text-light text-center p-3 border border-success rounded">Inserisci i nomi delle squadre</h3>
+
+                <button type="button" class="btn btn-outline-light myBtnController"><input type="text" name="nome" value="" placeholder ="Nome squadra"></button>
+
+                <button type="submit" class="btn bg-black text-light myBtnSalva ml-2 mr-2">Salva</button>
+
+                <!-- Table -->
+                <div id="my_Table_Calcio" class="table-responsive text-center text-uppercase mt-3 scroll">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="bg-black border rounded text-light">
+                                <th class=""><strong>Nome</strong></th>
+                                <th class=""><strong>Falli subiti</strong></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabellaSquadre" class="text-light">
+
+                        </tbody>
+                        <div class="sticky-top"><button type="button" class="myBtnController text-uppercase text-light border-success mb-2 pt-1 pb-1">Stampa risultati</button></div>
+                    </table>
+                </div>
+            </form>
+        </div>
         </div>
 
 

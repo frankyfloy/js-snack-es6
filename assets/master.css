@@ -5,43 +5,99 @@ body{
 }
 
 
-#cn_SfondoBici{
+/* #cn_SfondoBici,.jSnack2{
     height: 50vh;
     width: 100vw;
+} */
+
+#my_Form{
     background-image: url("./img/bg-img-bici.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+
 }
 
 #my_Table{
-    height: 100%;
-}
-
-#tabellaBici{
-    overflow-y: ;
+    height: 300px;
 }
 
 
+/* Jsnack2 */
 
-.myBtnController{
-    background-color: rgba(0,0,0,0.74);
+
+#my_Form_Calcio{
+    background-image: url("./img/stadio.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    width: 300px;
 }
+
+#my_Table_Calcio{
+    height: 300px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------Scroll Vertical table (Classe Scroll)------------------------- */
+.scroll{
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.scroll::-webkit-scrollbar{
+	-webkit-overflow-scrolling: auto;
+	width: 6px;
+}
+.scroll::-webkit-scrollbar-thumb{
+	border-radius: 4px;
+    background-color: rgba(0,0,0,1);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+/* ------------------------------------------------------------- */
+
+
+
 
 .myBtnController:hover{
     background-color: rgba(0,0,0,0.84);
     color: #000000;
-    text-shadow: 0 0 1px #000000;
-    transform: scale(1.06);
+    /* text-shadow: 0 0 1px #000000; */
+    transform: scale(1.04);
     text-transform: uppercase;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.myBtnSalva:hover{
+    background-color: rgba(0,0,0,0.84);
+    color: #000000;
+    border-color: #388e3c;
+    transform: scale(1.02);
     transform-style: preserve-3d;
     transition: 0.5s;
 }
 
 
 
-
-
 /* bg-color */
-.bg-black{
-    background-color: rgba(0,0,0,0.84);
+.bg-black,.myBtnController,#tabellaBici{
+    background-color: rgba(0,0,0,0.73);
+    border-color: #388e3c;
 }
 
 .bg-white{
