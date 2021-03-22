@@ -1,46 +1,35 @@
 html { font-size:100%; }
 
 body{
-    background-color: #ffffff;
+    background-color: black;
 }
 
 /* jsnack */
-#my_Form,#my_Form_Calcio,#my_Form_Gatti{
+.jSnack1,.jSnack2,.jSnack3{
+    margin-bottom: 50px;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 300px;
+    /* height: 350px; */
 }
 
-#my_Form_Gatti{
-    background-size: 100%;
-    background-repeat: no-repeat;
-    min-height: 300px;
-}
 
-#my_Table,#my_Table_Calcio{
+#my_Table,#my_Table_Calcio,#my_Table_Gatti{
     height: 300px;
 }
 
-
-/* Jsnack1 */
-
-#my_Form{
+.jSnack1{
     background-image: url("./img/bg-img-bici.jpg");
 }
 
-/* Jsnack2 */
-
-#my_Form_Calcio{
+.jSnack2{
     background-image: url("./img/stadio.webp");
-    width: 300px;
+
 }
 
-/*Jsnack 3 gatti */
-#my_Form_Gatti{
-    background-image: url("./img/gatti.jfif");
-    width: 500px;
-}
+.jSnack3{
+    background-image: url("./img/gatto_.jfif");
 
+}
 
 
 
@@ -83,6 +72,14 @@ body{
     transform-style: preserve-3d;
     transition: 0.5s;
 }
+
+
+.fa-ribbon {
+    height: 21px;
+    width: 21px;
+    font-weight: bold
+}
+
 
 
 

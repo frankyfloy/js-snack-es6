@@ -6,9 +6,8 @@ $(document).ready(function (){
 });
 
 
-// Jsnack gatti
+// Jsnack gatti -----------------------------------------
 function Snack3(){
-
 
     const gatti = [];
 
@@ -20,8 +19,6 @@ function Snack3(){
         event.preventDefault();
 
         let my_btn_Input_$ = $("form#my_Form_Gatti > button > input");
-
-
 
         const gatto = {
             name: $(my_btn_Input_$).eq(0).val(),
@@ -37,17 +34,35 @@ function Snack3(){
         $(my_btn_Input_$).eq(1).val("");
         $(my_btn_Input_$).eq(2).val("");
         $(my_btn_Input_$).eq(3).val("");
+
     });
 
 
-    $("#my_Table_Gatti button").click( function(){
-        console.log(gatti);
+    $("#contBtn_Print button.first").click( function(){
+        $("#contBtn_Print").hide();
 
-        gatti.forEach((element) => {
-            console.log(element.name);
-            add_Dati(element.name,element.colore)
+        let buttonBack = `<button type="button" class="myBtnController text-uppercase text-light border-success pl-2 mb-2">Back</button></div>`;
+        $("#my_Table_Gatti").append(buttonBack);
+
+        // TODO: Risolvere in modo chiaro il reset della tabella e dell' array gatti
+        $("#my_Table_Gatti > button").click( function(){
+            $("#tabellaGattiHeaderCol").children().remove();
+            $("#tabellaGatti").children().remove();
+            $("#contBtn_Print").show();
+            this.remove();
         });
 
+        let header_Col = `<tr class="bg-black border rounded text-light"><th><strong>Nome</strong></th><th><strong>Colore</strong></th></tr>`;
+        $("#tabellaGattiHeaderCol").append(header_Col);
+
+        gatti.forEach((element) => {
+            add_Dati(element.name,element.colore)
+        });
+    });
+
+
+    $("#contBtn_Print button.last").click( function(){
+        $("#contBtn_Print").hide();
         const a_gattiM = gatti.filter((element) => {
         return element.sesso === "maschio";
         });
@@ -56,37 +71,64 @@ function Snack3(){
         return element.sesso === "femmina";
         });
 
-        console.log(a_gattiM);
-        console.log(a_gattiF);
+        // Unione dei 2 array maschi/femmine
+        const mergedGatti_M_f = [...a_gattiM ,...a_gattiF];
 
-        // TODO: da finire (Stanco)
+        let buttonBack = `<button type="button" class="myBtnController text-uppercase text-light border-success mb-2">Stampa nome colore e sesso</button></div>`;
+        $("#my_Table_Gatti").append(buttonBack);
 
+        // TODO: Risolvere in modo chiaro il reset della tabella e dell' array gatti
+        $("#my_Table_Gatti > button").click( function(){
+            $("#tabellaGattiHeaderCol").children().remove();
+            $("#tabellaGatti").children().remove();
+            $("#contBtn_Print").show();
+            this.remove();
+        });
 
+        let header_Col = `<tr class="bg-black border rounded text-light"><th class=""><strong>Nome</strong></th><th class=""><strong>Colore</strong></th><th class=""><strong>Sesso</strong></th></tr>`;
+        $("#tabellaGattiHeaderCol").append(header_Col);
 
+        mergedGatti_M_f.forEach((element) => {
 
-        // let itemPiuLeggera = `<tr class="text-success bicicletta border border-success"><td class="nome bg-transparent"><strong>${biciclette[indexSuccessivoMin].name}</strong>
-        // </td><td><strong>${biciclette[indexSuccessivoMin].peso}</strong></td></tr>`;
-
-        // $("#tabellaBici").append(itemPiuLeggera);
-        // console.log(biciclette);
-
-        // setTimeout(function(){
-        //     $("#tabellaBici").children().remove();
-        //     biciclette  = [];
-        //     console.log(biciclette);
-        // },3000);
-
+            if (element.sesso === "maschio") {
+                let età = element.età
+                element.opacityEtà = 0.05 * età;
+                add_Dati(element.name,element.colore,element.sesso,element.opacityEtà);
+            }else if(element.sesso === "femmina"){
+                let età = element.età
+                element.opacityEtà = 0.05 * età;
+                add_Dati(element.name,element.colore,element.sesso,element.opacityEtà);
+            }
+        });
     });
 
-    function add_Dati(nome,colore){
-        let str = `<tr class="text-success border border-dark"><td class="nome"><strong>${nome}</strong>
-        </td><td><strong>${colore}</strong></td></tr>`;
-        $("#tabellaGatti").append(str);
+
+    function add_Dati(...myArguments){
+
+        if (myArguments.length === 2) {
+
+            let str = `<tr class="text-success border border-dark"><td class="nome"><strong>${myArguments[0]}</strong>
+            </td><td><strong>${myArguments[1]}</strong></td></tr>`;
+
+            $("#tabellaGatti").append(str);
+
+        }else if(myArguments.length === 4){
+
+            if (myArguments[2] == "femmina") {
+                let str = `<tr class="bg-black text-danger border border-dark"><td class="nome"><strong>${myArguments[0]}</strong>
+                </td><td><strong>${myArguments[1]}</strong></td><td><strong><i class="fas fa-ribbon fa-social fa-2x" style="color:rgba(204, 0, 153,${myArguments[3]} );"></i></strong></td></tr>`;
+                $("#tabellaGatti").append(str);
+            }else if (myArguments[2] == "maschio") {
+                let str = `<tr class="bg-black text-primary border border-dark"><td class="nome"><strong>${myArguments[0]}</strong>
+                </td><td><strong>${myArguments[1]}</strong></td><td><strong><i class="fas fa-ribbon fa-social fa-2x" style="color:rgba(51, 51, 204,${myArguments[3]} );"></i></strong></td></tr>`;
+                $("#tabellaGatti").append(str);
+
+            }
+        }
     };
-
-
 }
 
+// ------------------ fine jsnack gatti
 
 
 
@@ -95,11 +137,8 @@ function Snack1(){
     let name,peso;
     var myForm_$ = $("form#my_Form");
     var biciclette  = [];
+
     myForm_$.submit(function( event ) {
-
-        // Variabili
-
-
         // Annullamento invio dati (Refresh page)
         event.preventDefault();
 
@@ -122,7 +161,6 @@ function Snack1(){
         $(my_btn_Input_$).eq(0).val("");
         $(my_btn_Input_$).eq(1).val("");
     });
-
 
     $("#my_Table  button").click( function(){
         var biciPiùLeggera;
@@ -161,8 +199,6 @@ function Snack1(){
         $("#tabellaBici").append(str);
     };
 }
-
-
 
 
 function Snack2(){
